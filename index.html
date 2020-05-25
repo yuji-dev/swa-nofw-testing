@@ -10,8 +10,16 @@
 
 <body>
   <main>
-    <h1>Vanilla JavaScript App</h1>
+    <h1>Vanilla JavaScript App </h1>
+    <p>Loading message from the API: <b id="name">...</b></p>
   </main>
 </body>
+
+<script>
+  (async function() {
+    let { text } = await( await fetch(`/api/GetMessage`)).json();
+    document.querySelector('#name').textContent = text;
+  }())
+</script>
 
 </html>
